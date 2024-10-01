@@ -1,0 +1,23 @@
+[package]
+name = "refresh-site-worker"
+version = "0.0.0"
+edition = "2021"
+
+[package.metadata.release]
+release = false
+
+# https://github.com/rustwasm/wasm-pack/issues/1247
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+thiserror = "1.0.64"
+worker = { version = "0.4.1" }
+worker-macros = { version = "0.4.1" }
+console_error_panic_hook = { version = "0.1.1" }
+reqwest = "0.12.8"
+serde = { version = "1.0.210", features = ["derive"] }
+quick-xml = { version = "0.36.2", features = ["serialize", "serde"] }
